@@ -1,0 +1,165 @@
+a = 10;
+10
+var x = 100;
+undefined
+typeof x;
+"number"
+x = 10000.20
+10000.2
+typeof x;
+"number"
+var g ;
+undefined
+typeof g;
+"undefined"
+x++;
+10000.2
+x;
+10001.2
+typeof x;
+"number"
+x = true;
+true
+typeof x;
+"boolean"
+x;
+true
+x + x + x;
+3
+var t = 1000;
+undefined
+t + x;
+1001
+t = "Amit";
+"Amit"
+typeof t;
+"string"
+x = 1000;
+1000
+ y = 2000;
+2000
+x + y;
+3000
+x + y + "Hello";
+"3000Hello"
+z = "100";
+"100"
+x + y + z;
+"3000100"
+z + x + y;
+"10010002000"
+x - z;
+900
+x;
+1000
+z;
+"100"
+x- z;
+900
+"Hello" - "Bye"
+NaN
+"One  " - 100;
+NaN
+isNaN("One"-100)?0:100;
+0
+"one"*10;
+NaN
+var c = "one"-10;
+undefined
+typeof c;
+"number"
+c = 1000/0;
+Infinity
+c;
+Infinity
+typeof c;
+"number"
+isFinite(c)?c:0;
+0
+var a = "10000";
+undefined
+var b = "20000";
+undefined
+a-b;
+-10000
+a+b ;
+"1000020000"
+parseInt(a) + parseInt(b);
+30000
+a = "100.20";
+"100.20"
+parseFloat(a);
+100.2
+Number("2000");
+2000
+Number("2000.10");
+2000.1
+a=1000;
+1000
+typeof a;
+"number"
+var d = new Number(1000);
+undefined
+d;
+Number {1000}
+typeof d;
+"object"
+var nn = 1000;
+undefined
+d instanceof Number;
+true
+typeof Number;
+"function"
+var e = new String("Hello");
+undefined
+typeof e;
+"object"
+e instanceof String;
+true
+var f = "Ok";
+undefined
+var e = new Number(1000);
+undefined
+e++;
+1000
+e;
+1001
+e= "Amit";
+"Amit"
+e = 'Amit';
+"Amit"
+e = "Let's Do It ";
+"Let's Do It "
+e = `,mdgjkfngjdhfgjkdhgjkdgjkhdkjfhgkjdghkjfdhfgdkj
+gdfhkgjhfdjk
+gdhgfjkdh
+gdsdgfdkj`;
+",mdgjkfngjdhfgjkdhgjkdgjkhdkjfhgkjdghkjfdhfgdkj
+gdfhkgjhfdjk
+gdhgfjkdh
+gdsdgfdkj"
+e;
+",mdgjkfngjdhfgjkdhgjkdgjkhdkjfhgkjdghkjfdhfgdkj
+gdfhkgjhfdjk
+gdhgfjkdh
+gdsdgfdkj"
+x = 100;
+100
+y = 200;
+200
+"X is "+x+" and Y is "+y;
+"X is 100 and Y is 200"
+`X is ${x} and Y is ${y}`;
+"X is 100 and Y is 200"
+var arr = [1,2,3,4];
+undefined
+arr = [1, "Hello",20,true,[90,100]];
+(5) [1, "Hello", 20, true, Array(2)]
+typeof arr;
+"object"
+arr instanceof Array;
+true
+typeof Array;
+"function"
+arr instanceof Object;
+true
