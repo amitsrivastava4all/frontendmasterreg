@@ -1,0 +1,144 @@
+var a  = 1000;
+undefined
+a
+1000
+typeof a;
+"number"
+var b = new Number(1000);
+undefined
+b;
+Number {1000}
+b++
+1000
+b;
+1001
+typeof b;
+"number"
+b;
+1001
+var arr = [1,2,3,4];
+undefined
+arr[2];
+3
+typeof arr;
+"object"
+arr.push(111);
+5
+arr;
+(5) [1, 2, 3, 4, 111]
+arr.pop();
+111
+arr;
+(4) [1, 2, 3, 4]
+arr.splice(1,1);
+[2]
+arr;
+(3) [1, 3, 4]
+arr instanceof Array;
+true
+arr[0];
+1
+var name = "Amit"; // string literal
+var obj = {}; // Object Literal
+undefined
+var obj = {id:1001, name:'Ram'};
+undefined
+var phones = [111,222,333,555,777,112,455];
+undefined
+var phones = {"ram":1111,"shyam":5555};
+undefined
+phones["ram"];
+1111
+phones.ram;
+1111
+typeof phones;
+"object"
+phones instanceof Object;
+true
+typeof Object;
+"function"
+var x= 100;
+undefined
+var y = "200";
+undefined
+y + x.toString();
+"200100"
+x;
+100
+x.toString();
+"100"
+x.toString() + y
+"100200"
+var arr = [1,2,3,4];
+undefined
+arr instanceof Array;
+true
+arr instanceof Object;
+true
+"Array is "+arr.toString();
+"Array is 1,2,3,4"
+var vv = [90,100];
+undefined
+arr;
+(4) [1, 2, 3, 4]
+arr + vv;
+"1,2,3,490,100"
+"Hello"+"Bye";
+"HelloBye"
+"Array is "+arr;
+"Array is 1,2,3,4"
+var obj = {id:1001, name:"Ram"};
+undefined
+obj.toString();
+"[object Object]"
+"My Object is"+obj;
+"My Object is[object Object]"
+"My Object is"+obj.id+" "+obj.name;
+"My Object is1001 Ram"
+var obj = {
+id:1001, 
+name:"Ram",
+toString:function(){
+return "Id is "+this.id+" Name "+this.name;
+}
+};
+undefined
+obj.toString();
+"Id is 1001 Name Ram"
+"My Object is "+obj;
+"My Object is Id is 1001 Name Ram"
+obj;
+{id: 1001, name: "Ram", toString: ƒ}
+obj.salary = 8888;
+8888
+obj;
+{id: 1001, name: "Ram", toString: ƒ, salary: 8888}
+delete obj.name;
+true
+obj;
+{id: 1001, toString: ƒ, salary: 8888}
+obj.toString();
+"Id is 1001 Name undefined"
+obj.name ="Ram";
+"Ram"
+obj.toString();
+"Id is 1001 Name Ram"
+var x = 100;
+var obj2 = {
+x,
+toString(){
+return "X is "+this.x;
+}
+}
+undefined
+obj2.toString();
+"X is 100"
+var calc = {
+ add(){
+console.log("I am Add ");
+}
+}
+undefined
+calc.add();
+VM3032:3 I am Add 
+undefined
