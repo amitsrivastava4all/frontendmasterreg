@@ -1,0 +1,175 @@
+window;
+Window {postMessage: ƒ, blur: ƒ, focus: ƒ, close: ƒ, parent: Window, …}
+var x = 100;
+undefined
+window.x;
+100
+function show(){}
+
+undefined
+window.show();
+undefined
+window.show;
+ƒ show(){}
+var obj = {
+show(){}
+}
+undefined
+window.obj.show;
+ƒ show(){}
+typeof window;
+"object"
+typeof Window;
+"function"
+typeof Object;
+"function"
+var obj = {id:1001, name:'Ram'};
+undefined
+console.log("My Obj is "+obj);
+VM395:1 My Obj is [object Object]
+undefined
+console.log("My Obj is "+obj.toString());
+VM447:1 My Obj is [object Object]
+undefined
+console.log("My Obj is ",obj);
+VM504:1 My Obj is  {id: 1001, name: "Ram"}
+undefined
+var obj = {
+x:10,
+add(){
+this.x++;
+console.log("this is ",this.x);
+},
+sub(){
+}
+}
+undefined
+obj.add();
+VM636:5 this is  11
+undefined
+function add(x,y){
+x = x?x:0;
+y=y?y:0;
+return x + y;
+}
+undefined
+add();
+0
+add(10);
+10
+add(120,20);
+140
+obj;
+{x: 11, add: ƒ, sub: ƒ}
+obj.x = "AMIT";
+"AMIT"
+obj.add();
+VM636:5 this is  NaN
+undefined
+function order(){
+var _id;
+var _name;
+var x =100;  // variable expression
+var add = function (id, name){ // function expression
+_id = id;
+_name = name;
+console.log("Order Added");
+}
+var print=function(){
+console.log("Order Print "+_id+" "+_name);
+}
+return [add,print];
+}
+undefined
+var e = order();
+undefined
+e;
+(2) [ƒ, ƒ]0: ƒ (id, name)arguments: nullcaller: nulllength: 2name: "add"prototype: {constructor: ƒ}__proto__: ƒ ()[[FunctionLocation]]: VM1235:5[[Scopes]]: Scopes[2]1: ƒ ()length: 2__proto__: Array(0)
+e[0](1001,"Mobile");
+VM1235:8 Order Added
+undefined
+e[1]();
+VM1235:11 Order Print 1001 Mobile
+undefined
+e;
+(2) [ƒ, ƒ]0: ƒ (id, name)1: ƒ ()length: 2__proto__: Array(0)
+function order(){
+var _id;
+var _name;
+var x =100;  // variable expression
+var add = function add(id, name){ // function expression
+_id = id;
+_name = name;
+console.log("Order Added");
+}
+var print=function print(){
+console.log("Order Print "+_id+" "+_name);
+}
+return [add,print];
+}
+undefined
+var e= order();
+undefined
+e;
+(2) [ƒ, ƒ]0: ƒ add(id, name)1: ƒ print()length: 2__proto__: Array(0)
+function order(){
+var _id;
+var _name;
+var x =100;  // variable expression
+var add = function (id, name){ // function expression
+_id = id;
+_name = name;
+console.log("Order Added");
+}
+var print=function (){
+console.log("Order Print "+_id+" "+_name);
+}
+return {"addOrder":add,"printOrder":print};
+}
+undefined
+var e= order();
+undefined
+e;
+{addOrder: ƒ, printOrder: ƒ}
+e.addOrder();
+VM1401:8 Order Added
+undefined
+e.addOrder(1001,"Mobile");
+VM1401:8 Order Added
+undefined
+e.printOrder();
+VM1401:11 Order Print 1001 Mobile
+undefined
+
+add();
+function add(){
+console.log("Add Call ");
+}
+
+VM1566:4 Add Call 
+undefined
+test();
+var test = function(){
+console.log("Test Call ");
+}
+VM1628:1 Uncaught TypeError: test is not a function
+    at <anonymous>:1:1
+(anonymous) @ VM1628:1
+var add = (x,y)=>x+y;
+undefined
+add(10,20);
+30
+typeof add;
+"function"
+var add = function (x,y){
+return x + y;
+}
+undefined
+var add = (x,y)=>{
+console.log(`X is ${x} and Y is ${y}`);
+return x  + y;
+}
+undefined
+add(100,200);
+VM1828:2 X is 100 and Y is 200
+300
