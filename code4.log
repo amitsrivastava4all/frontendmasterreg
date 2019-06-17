@@ -1,0 +1,250 @@
+function show(){
+console.log(" I am Show " , this);
+}
+undefined
+window.show();
+VM2263:2  I am Show  Window {postMessage: ƒ, blur: ƒ, focus: ƒ, close: ƒ, parent: Window, …}
+undefined
+var obj = {
+show(){
+console.log(" I am Obj ",this);
+}
+}
+undefined
+obj.show();
+VM2365:3  I am Obj  {show: ƒ}
+undefined
+var arr = [10,1,20,10,9,100,9,10];
+undefined
+arr.push(2000);
+9
+arr.pop();
+2000
+arr;
+(8) [10, 1, 20, 10, 9, 100, 9, 10]
+for(let i = 0 ; i<arr.length; i++){
+console.log(arr[i]);
+}
+VM2605:2 10
+VM2605:2 1
+VM2605:2 20
+VM2605:2 10
+VM2605:2 9
+VM2605:2 100
+VM2605:2 9
+VM2605:2 10
+undefined
+for(let a of arr){
+console.log(a);
+}
+VM2662:2 10
+VM2662:2 1
+VM2662:2 20
+VM2662:2 10
+VM2662:2 9
+VM2662:2 100
+VM2662:2 9
+VM2662:2 10
+undefined
+function printIt(ele){
+console.log("ELement is ",ele);
+}
+arr.forEach(printIt);
+VM2776:2 ELement is  10
+VM2776:2 ELement is  1
+VM2776:2 ELement is  20
+VM2776:2 ELement is  10
+VM2776:2 ELement is  9
+VM2776:2 ELement is  100
+VM2776:2 ELement is  9
+VM2776:2 ELement is  10
+undefined
+var a = function(x){
+	console.log(x);
+}
+undefined
+function loop(fn){
+for(let i = 1; i<=10; i++){
+fn(i);
+}
+}
+undefined
+loop(a);
+VM2878:2 1
+VM2878:2 2
+VM2878:2 3
+VM2878:2 4
+VM2878:2 5
+VM2878:2 6
+VM2878:2 7
+VM2878:2 8
+VM2878:2 9
+VM2878:2 10
+undefined
+var c = function(q){
+console.log(q**3);
+}
+undefined
+loop(c);
+VM3033:2 1
+VM3033:2 8
+VM3033:2 27
+VM3033:2 64
+VM3033:2 125
+VM3033:2 216
+VM3033:2 343
+VM3033:2 512
+VM3033:2 729
+VM3033:2 1000
+undefined
+function printIt(ele){
+console.log("Array Element is ",ele);
+}
+arr.forEach(printIt);
+VM3156:2 Array Element is  10
+VM3156:2 Array Element is  1
+VM3156:2 Array Element is  20
+VM3156:2 Array Element is  10
+VM3156:2 Array Element is  9
+VM3156:2 Array Element is  100
+VM3156:2 Array Element is  9
+VM3156:2 Array Element is  10
+undefined
+function add(x,y){
+return x + y;
+}
+undefined
+var add1 = (x,y)=>x+y;
+undefined
+add1(10,20);
+30
+arr.forEach(ele=>console.log("Ele is ",ele));
+VM3365:1 Ele is  10
+VM3365:1 Ele is  1
+VM3365:1 Ele is  20
+VM3365:1 Ele is  10
+VM3365:1 Ele is  9
+VM3365:1 Ele is  100
+VM3365:1 Ele is  9
+VM3365:1 Ele is  10
+undefined
+arr;
+(8) [10, 1, 20, 10, 9, 100, 9, 10]
+arr.splice(2,1)
+[20]
+arr;
+(7) [10, 1, 10, 9, 100, 9, 10]
+arr.find(ele=>ele==100);
+100
+arr.find(ele=>ele==1000);
+undefined
+arr.find(ele=>ele==10);
+10
+arr.findIndex(ele=>ele==10);
+0
+arr.splice(arr.findIndex(ele=>ele==10),1);
+[10]
+arr;
+(6) [1, 10, 9, 100, 9, 10]
+arr.findIndex(ele=>ele==100000);
+-1
+arr.splice(arr.findIndex(ele=>ele==10000),1);
+[10]
+arr;
+(5) [1, 10, 9, 100, 9]
+var index = arr.findIndex(ele=>ele==100000);
+index>=0?arr.splice(index,1):"No Record Found";
+"No Record Found"
+var index = arr.findIndex(ele=>ele==100);
+index>=0?arr.splice(index,1):"No Record Found";
+[100]
+arr;
+(4) [1, 10, 9, 9]
+var arr = [10,1,20,10,9,100,9,10];
+undefined
+arr.filter(y=>y==10);
+(3) [10, 10, 10]
+arr.filter(y=>y==10).length;
+3
+var m = arr.filter(y=>true);
+undefined
+m;
+(8) [10, 1, 20, 10, 9, 100, 9, 10]
+arr = arr.filter(y=>y!=10);
+(5) [1, 20, 9, 100, 9]
+arr = arr.filter(y=>1==1);
+(5) [1, 20, 9, 100, 9]
+arr;
+(5) [1, 20, 9, 100, 9]
+var arr = [10,1,20,10,9,100,9,10];
+undefined
+var m = arr.filter(y=>true);
+undefined
+m;
+(8) [10, 1, 20, 10, 9, 100, 9, 10]
+m[0] = 999999;
+999999
+m;
+(8) [999999, 1, 20, 10, 9, 100, 9, 10]
+arr;
+(8) [10, 1, 20, 10, 9, 100, 9, 10]
+var t = arr;
+undefined
+t[0] =111111;
+111111
+t;
+(8) [111111, 1, 20, 10, 9, 100, 9, 10]
+arr;
+(8) [111111, 1, 20, 10, 9, 100, 9, 10]
+arr;
+(8) [111111, 1, 20, 10, 9, 100, 9, 10]
+var f= arr.map(ele=>"Rs"+ele+".00");
+undefined
+f;
+(8) ["Rs111111.00", "Rs1.00", "Rs20.00", "Rs10.00", "Rs9.00", "Rs100.00", "Rs9.00", "Rs10.00"]
+var gst = 0.18;
+undefined
+var f= arr.map(ele=>ele+ele*gst);
+undefined
+f;
+(8) [131110.98, 1.18, 23.6, 11.8, 10.62, 118, 10.62, 11.8]
+var r = arr.map(y=>y);
+undefined
+r;
+(8) [111111, 1, 20, 10, 9, 100, 9, 10]
+arr.sort((a,b)=>a-b);
+(8) [1, 9, 9, 10, 10, 20, 100, 111111]
+arr.sort((a,b)=>b-a);
+(8) [111111, 100, 20, 10, 10, 9, 9, 1]
+"ram".localeCompare("amit");
+1
+"amit".localeCompare("ram");
+-1
+"amit".localeCompare("amit");
+0
+var names= ["tim","amit","ram","anil","ajay","shyam"]
+undefined
+names.sort((a,b)=>a.localeCompare(b));
+(6) ["ajay", "amit", "anil", "ram", "shyam", "tim"]
+names.sort((a,b)=>b.localeCompare(a));
+(6) ["tim", "shyam", "ram", "anil", "amit", "ajay"]
+arr;
+(8) [111111, 100, 20, 10, 10, 9, 9, 1]
+arr.reduce((acc,ele)=>acc+=ele,acc=0);
+111270
+arr;
+(8) [111111, 100, 20, 10, 10, 9, 9, 1]
+arr.reduce((acc,ele)=>{
+if(ele == 9){
+acc.push(ele);
+}
+return acc;
+},acc=[]);
+(2) [9, 9]
+arr.reduce((acc,ele)=>{
+if(ele == 9){
+acc.push(ele);
+}
+return acc;
+},acc=[]);
+(2) [9, 9]
