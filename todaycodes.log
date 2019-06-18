@@ -1,0 +1,249 @@
+var arr = [90,10,2,11,99,100];
+undefined
+var obj = {};
+undefined
+typeof obj;
+"object"
+obj instanceof Object;
+true
+var x = [];
+undefined
+typeof x;
+"object"
+x instanceof Array;
+true
+x instanceof Object;
+true
+var cartOperations = {
+// Data + function ( Encapsulation)
+carts:[],  // Data
+add(currentCart){  // function
+	this.carts.push(currentCart);
+	console.log("Added in Cart ",this.carts);
+},
+delete(){
+},
+search(){
+},
+update(){
+}
+}
+undefined
+cartOperations.add({id:1001, name:'Samsung', price:9999, brand:'Samsung',qt:2});
+VM557:6 Added in Cart  [{…}]0: {id: 1001, name: "Samsung", price: 9999, brand: "Samsung", qt: 2}length: 1__proto__: Array(0)
+undefined
+cartOperations.add({id:1001, name:'Samsung', price:9999, brand:'Samsung',qt:2});
+VM557:6 Added in Cart  (2) [{…}, {…}]
+undefined
+var obj = {id:1001, name:'Ram', salary : 9999};
+undefined
+function createEmployee(id ,name ,salary){
+var obj = {};
+obj.id = id;
+obj.name = name;
+obj.salary = salary;
+console.log("I am This ",this);
+return obj;
+}
+undefined
+var ram = createEmployee(1001, "Ram",99999);
+
+VM886:6 I am This  Window {postMessage: ƒ, blur: ƒ, focus: ƒ, close: ƒ, parent: Window, …}
+undefined
+ram;
+{id: 1001, name: "Ram", salary: 99999}
+typeof ram;
+"object"
+var shyam = createEmployee(1111,'Shyam',7777);
+VM886:6 I am This  Window {postMessage: ƒ, blur: ƒ, focus: ƒ, close: ƒ, parent: Window, …}
+undefined
+shyam;
+{id: 1111, name: "Shyam", salary: 7777}
+shyam instanceof Object;
+true
+function createCustomer(id ,name ,balance, address){
+var obj = {};
+obj.id = id;
+obj.name = name;
+obj.balance = balance;
+obj.address = address;
+return obj;
+}
+undefined
+ram;
+{id: 1001, name: "Ram", salary: 99999}
+shyam;
+{id: 1111, name: "Shyam", salary: 7777}
+var ramesh = createCustomer(1, "Ramesh",900,"Delhi");
+undefined
+typeof ramesh;
+"object"
+ramesh;
+{id: 1, name: "Ramesh", balance: 900, address: "Delhi"}
+ram;
+{id: 1001, name: "Ram", salary: 99999}
+ramesh instanceof Object;
+true
+ram instanceof Object;
+true
+// Function Constructor
+function Customer(id ,name ,balance, address){
+//var obj = {}; var this = {}; // Implicit
+obj.id = id;
+obj.name = name;
+obj.balance = balance;
+obj.address = address;
+//return obj;  return this; // Implicit
+}
+var mike = new Customer(10, "Mike",9000,"Delhi");
+
+undefined
+typeof mike;
+"object"
+ram;
+{id: 1001, name: "Ram", salary: 99999}
+mike;
+Customer {}
+// Function Constructor
+function Customer(id ,name ,balance, address){
+//var obj = {}; var this = {}; // Implicit
+this.id = id;
+this.name = name;
+this.balance = balance;
+this.address = address;
+//return obj;  return this; // Implicit
+}
+var mike = new Customer(10, "Mike",9000,"Delhi");
+
+undefined
+mike;
+Customer {id: 10, name: "Mike", balance: 9000, address: "Delhi"}
+ram;
+{id: 1001, name: "Ram", salary: 99999}
+mike instanceof Customer;
+true
+function show(){
+console.log(" I am Show ");
+}
+undefined
+show();
+VM1522:2  I am Show 
+undefined
+window.show();
+VM1522:2  I am Show 
+undefined
+var = new show();
+VM1573:1 Uncaught SyntaxError: Unexpected token =
+var r= new show();
+VM1522:2  I am Show 
+undefined
+typeof . r;
+VM1586:1 Uncaught SyntaxError: Unexpected token .
+typeof  r;
+"object"
+r instanceof show;
+true
+r;
+show {}
+// Function Constructor
+function Customer(id ,name ,balance, address){
+//var obj = {}; var this = {}; // Implicit
+this.id = id;
+this.name = name;
+this.balance = balance;
+this.address = address;
+this.print= function(){
+console.log(`Id is ${this.id} Name is ${this.name} Balance is ${this.balance} Address is ${this.address}`);
+}
+//return obj;  return this; // Implicit
+}
+var mike = new Customer(10, "Mike",9000,"Delhi");
+
+undefined
+mike;
+Customer {id: 10, name: "Mike", balance: 9000, address: "Delhi", print: ƒ}
+var tom = new Customer(1002, 'Tom',999,'Delhi');
+undefined
+tom;
+Customer {id: 1002, name: "Tom", balance: 999, address: "Delhi", print: ƒ}
+// Function Constructor
+function Customer(id ,name ,balance, address){
+//var obj = {}; var this = {}; // Implicit
+this.id = id;
+this.name = name;
+this.balance = balance;
+this.address = address;
+/*this.print= function(){
+console.log(`Id is ${this.id} Name is ${this.name} Balance is ${this.balance} Address is ${this.address}`);
+}*/
+//return obj;  return this; // Implicit
+}
+Customer.prototype.print=function(){
+console.log(`Id is ${this.id} Name is ${this.name} Balance is ${this.balance} Address is ${this.address}`);
+}
+var mike = new Customer(10, "Mike",9000,"Delhi");
+var tom = new Customer(1, "tom",7000,"Delhi");
+
+ƒ (){
+console.log(`Id is ${this.id} Name is ${this.name} Balance is ${this.balance} Address is ${this.address}`);
+}
+mike;
+Customer {id: 10, name: "Mike", balance: 9000, address: "Delhi"}address: "Delhi"balance: 9000id: 10name: "Mike"__proto__: print: ƒ ()constructor: ƒ Customer(id ,name ,balance, address)__proto__: Object
+tom;
+Customer {id: 1, name: "tom", balance: 7000, address: "Delhi"}address: "Delhi"balance: 7000id: 1name: "tom"__proto__: print: ƒ ()constructor: ƒ Customer(id ,name ,balance, address)__proto__: Object
+mike.id;
+10
+mike.print();
+VM1909:14 Id is 10 Name is Mike Balance is 9000 Address is Delhi
+undefined
+Customer.prototype.toString=function(){
+console.log(`Id is ${this.id} Name is ${this.name} Balance is ${this.balance} Address is ${this.address}`);
+}
+ƒ (){
+console.log(`Id is ${this.id} Name is ${this.name} Balance is ${this.balance} Address is ${this.address}`);
+}
+mike.toString();
+VM2047:2 Id is 10 Name is Mike Balance is 9000 Address is Delhi
+undefined
+console.log(mike);
+VM2101:1 Customer {id: 10, name: "Mike", balance: 9000, address: "Delhi"}
+undefined
+mike;
+Customer {id: 10, name: "Mike", balance: 9000, address: "Delhi"}
+console.log("Mike is "+mike);
+VM2047:2 Id is 10 Name is Mike Balance is 9000 Address is Delhi
+VM2167:1 Mike is undefined
+undefined
+console.log("Mike is "+mike.toString());
+VM2047:2 Id is 10 Name is Mike Balance is 9000 Address is Delhi
+VM2228:1 Mike is undefined
+undefined
+Customer.prototype.toString=function(){
+return `Id is ${this.id} Name is ${this.name} Balance is ${this.balance} Address is ${this.address}`;
+}
+ƒ (){
+return `Id is ${this.id} Name is ${this.name} Balance is ${this.balance} Address is ${this.address}`;
+}
+console.log("Mike is "+mike);
+VM2263:1 Mike is Id is 10 Name is Mike Balance is 9000 Address is Delhi
+undefined
+class Employee{
+constructor(id, name, salary){
+this.id = id;
+this.name = name;
+this.salary = salary;
+}
+print(){
+	console.log(`Id is ${this.id} Name is ${this.name} and Salary is ${this.salary}`);
+}
+toString(){
+	return `Id is ${this.id} Name is ${this.name} and Salary is ${this.salary}`;
+}
+}
+undefined
+var ram = new Employee(1001,"Ram",9999);
+undefined
+ram;
+Employee {id: 1001, name: "Ram", salary: 9999}id: 1001name: "Ram"salary: 9999__proto__: constructor: class Employeeprint: ƒ print()toString: ƒ toString()__proto__: Object
+typeof Employee;
+"function"
