@@ -1,0 +1,55 @@
+Singleton
+var obj = {id:1001, name:'Ram', salary : 9999}; // Object  Literal
+
+N Number of Object - Factory Function. (Duplicate Code + NO TYPE ALWAYS BELONG TO OBJECT TYPE)
+function createEmployee(id ,name ,salary){
+var obj = {};
+obj.id = id;
+obj.name = name;
+obj.salary = salary;
+return obj;
+}
+function createCustomer(id ,name ,balance, address){
+var obj = {};  // Duplicate
+obj.id = id;
+obj.name = name;
+obj.balance = balance;
+obj.address = address;
+return obj;  // Duplicate
+}
+
+3. // Function Constructor
+function Customer(id ,name ,balance, address){
+//var obj = {}; var this = {}; // Implicit
+this.id = id;
+this.name = name;
+this.balance = balance;
+this.address = address;
+//return obj;  return this; // Implicit
+}
+var mike = new Customer(10, "Mike",9000,"Delhi");
+
+ProtoType
+Customer.prototype.print=function(){
+console.log(`Id is ${this.id} Name is ${this.name} Balance is ${this.balance} Address is ${this.address}`);
+}
+
+Overriding - Prototype Inheritance
+Customer.prototype.toString=function(){
+return `Id is ${this.id} Name is ${this.name} Balance is ${this.balance} Address is ${this.address}`;
+}
+
+4. ES 6 Classes
+class Employee{
+constructor(id, name, salary){
+this.id = id;
+this.name = name;
+this.salary = salary;
+}
+print(){
+	console.log(`Id is ${this.id} Name is ${this.name} and Salary is ${this.salary}`);
+}
+toString(){
+	return `Id is ${this.id} Name is ${this.name} and Salary is ${this.salary}`;
+}
+}
