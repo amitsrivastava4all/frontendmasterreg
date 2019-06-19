@@ -1,0 +1,225 @@
+function Customer(id , name){
+// Instance Var = Local Var
+this.id = id;
+this.name = name;
+this.print=function(){
+console.log(`Id is ${this.id} and Name is ${this.name}`);
+}
+}
+var ram = new Customer(1001, "Ram");
+var shyam = new Customer(1002, "Shyam");
+undefined
+ram;
+Customer {id: 1001, name: "Ram", print: ƒ}
+shyam;
+Customer {id: 1002, name: "Shyam", print: ƒ}
+// function constructor
+function Customer(id , name){
+// Instance Var = Local Var
+this.id = id;
+this.name = name;
+/*this.print=function(){
+console.log(`Id is ${this.id} and Name is ${this.name}`);*/
+}
+}
+Customer.prototype.print=function(){
+console.log(`Id is ${this.id} and Name is ${this.name}`);
+}
+var ram = new Customer(1001, "Ram");
+var shyam = new Customer(1002, "Shyam");
+VM452:9 Uncaught SyntaxError: Unexpected token }
+// function constructor
+function Customer(id , name){
+// Instance Var = Local Var
+this.id = id;
+this.name = name;
+/*this.print=function(){
+console.log(`Id is ${this.id} and Name is ${this.name}`);
+}*/
+}
+Customer.prototype.print=function(){
+console.log(`Id is ${this.id} and Name is ${this.name}`);
+}
+var ram = new Customer(1001, "Ram");
+var shyam = new Customer(1002, "Shyam");
+ƒ (){
+console.log(`Id is ${this.id} and Name is ${this.name}`);
+}
+ram;
+Customer {id: 1001, name: "Ram"}id: 1001name: "Ram"__proto__: print: ƒ ()constructor: ƒ Customer(id , name)__proto__: Object
+shyam;
+Customer {id: 1002, name: "Shyam"}id: 1002name: "Shyam"__proto__: print: ƒ ()constructor: ƒ Customer(id , name)__proto__: constructor: ƒ Object()hasOwnProperty: ƒ hasOwnProperty()isPrototypeOf: ƒ isPrototypeOf()propertyIsEnumerable: ƒ propertyIsEnumerable()toLocaleString: ƒ toLocaleString()toString: ƒ toString()valueOf: ƒ valueOf()__defineGetter__: ƒ __defineGetter__()__defineSetter__: ƒ __defineSetter__()__lookupGetter__: ƒ __lookupGetter__()__lookupSetter__: ƒ __lookupSetter__()get __proto__: ƒ __proto__()set __proto__: ƒ __proto__()
+var validation = {
+isBlank(){
+},
+validateEmail(){
+},
+validatePhone(){
+}
+
+}
+undefined
+typeof validation;
+"object"
+validation instanceof Object;
+true
+ram instanceof Customer;
+true
+ram instanceof Object;
+true
+typeof Customer;
+"function"
+function show(){
+console.log(" I am Show ");
+}
+undefined
+show();
+VM705:2  I am Show 
+undefined
+window.show();
+VM705:2  I am Show 
+undefined
+window == this;
+true
+this;
+Window {postMessage: ƒ, blur: ƒ, focus: ƒ, close: ƒ, parent: Window, …}
+window;
+Window {postMessage: ƒ, blur: ƒ, focus: ƒ, close: ƒ, parent: Window, …}
+typeof Window;
+"function"
+function show(){
+console.log(" I am Show this is ",this);
+}
+undefined
+show();
+VM821:2  I am Show this is  Window {postMessage: ƒ, blur: ƒ, focus: ƒ, close: ƒ, parent: Window, …}
+undefined
+window.show();
+VM821:2  I am Show this is  Window {postMessage: ƒ, blur: ƒ, focus: ƒ, close: ƒ, parent: Window, …}
+undefined
+var obj = new show();
+VM821:2  I am Show this is  show {}
+undefined
+typeof show;
+"function"
+typeof obj;
+"object"
+obj instanceof show;
+true
+console.dir(show);
+VM946:1 ƒ show()arguments: nullcaller: nulllength: 0name: "show"prototype: {constructor: ƒ}__proto__: ƒ ()apply: ƒ apply()arguments: (...)bind: ƒ bind()call: ƒ call()caller: (...)constructor: ƒ Function()length: 0name: ""toString: ƒ toString()Symbol(Symbol.hasInstance): ƒ [Symbol.hasInstance]()get arguments: ƒ ()set arguments: ƒ ()get caller: ƒ ()set caller: ƒ ()__proto__: constructor: ƒ Object()hasOwnProperty: ƒ hasOwnProperty()isPrototypeOf: ƒ isPrototypeOf()propertyIsEnumerable: ƒ propertyIsEnumerable()toLocaleString: ƒ toLocaleString()toString: ƒ toString()valueOf: ƒ valueOf()__defineGetter__: ƒ __defineGetter__()__defineSetter__: ƒ __defineSetter__()__lookupGetter__: ƒ __lookupGetter__()__lookupSetter__: ƒ __lookupSetter__()get __proto__: ƒ __proto__()set __proto__: ƒ __proto__()[[FunctionLocation]]: <unknown>[[Scopes]]: Scopes[0][[FunctionLocation]]: VM821:1[[Scopes]]: Scopes[1]
+undefined
+console.dir(show.prototype);
+VM1020:1 Objectconstructor: ƒ show()__proto__: Object
+undefined
+show.prototype.__proto__;
+{constructor: ƒ, __defineGetter__: ƒ, __defineSetter__: ƒ, hasOwnProperty: ƒ, __lookupGetter__: ƒ, …}constructor: ƒ Object()hasOwnProperty: ƒ hasOwnProperty()isPrototypeOf: ƒ isPrototypeOf()propertyIsEnumerable: ƒ propertyIsEnumerable()toLocaleString: ƒ toLocaleString()toString: ƒ toString()valueOf: ƒ valueOf()__defineGetter__: ƒ __defineGetter__()__defineSetter__: ƒ __defineSetter__()__lookupGetter__: ƒ __lookupGetter__()__lookupSetter__: ƒ __lookupSetter__()get __proto__: ƒ __proto__()set __proto__: ƒ __proto__()
+function Employee(id, name,salary){
+this.id = id;
+this.name = name;
+this.salary = salary;
+}
+var ram = new Employee(1001,"Ram",9000);
+undefined
+ram;
+Employee {id: 1001, name: "Ram", salary: 9000}
+typeof ram;
+"object"
+ram instanceof Employee;
+true
+typeof Employee;
+"function"
+Employee.prototype;
+{constructor: ƒ}constructor: ƒ Employee(id, name,salary)__proto__: Object
+function Person(age){
+this.age = age;
+}
+undefined
+Person.prototype;
+{constructor: ƒ}constructor: ƒ Person(age)__proto__: Object
+Employee.prototype.__proto__=Person.prototype;
+{constructor: ƒ}
+Employee.prototype;
+Person {constructor: ƒ}constructor: ƒ Employee(id, name,salary)__proto__: constructor: ƒ Person(age)__proto__: constructor: ƒ Object()hasOwnProperty: ƒ hasOwnProperty()isPrototypeOf: ƒ isPrototypeOf()propertyIsEnumerable: ƒ propertyIsEnumerable()toLocaleString: ƒ toLocaleString()toString: ƒ toString()valueOf: ƒ valueOf()__defineGetter__: ƒ __defineGetter__()__defineSetter__: ƒ __defineSetter__()__lookupGetter__: ƒ __lookupGetter__()__lookupSetter__: ƒ __lookupSetter__()get __proto__: ƒ __proto__()set __proto__: ƒ __proto__()
+var ram = new Employee(1, "Ram",90000);
+undefined
+ram;
+Employee {id: 1, name: "Ram", salary: 90000}id: 1name: "Ram"salary: 90000__proto__: Personconstructor: ƒ Employee(id, name,salary)__proto__: constructor: ƒ Person(age)__proto__: constructor: ƒ Object()hasOwnProperty: ƒ hasOwnProperty()isPrototypeOf: ƒ isPrototypeOf()propertyIsEnumerable: ƒ propertyIsEnumerable()toLocaleString: ƒ toLocaleString()toString: ƒ toString()valueOf: ƒ valueOf()__defineGetter__: ƒ __defineGetter__()__defineSetter__: ƒ __defineSetter__()__lookupGetter__: ƒ __lookupGetter__()__lookupSetter__: ƒ __lookupSetter__()get __proto__: ƒ __proto__()set __proto__: ƒ __proto__()
+ram.id;
+1
+ram.age;
+undefined
+ram.age  = 11;
+11
+ram.age;
+11
+ram;
+Employee {id: 1, name: "Ram", salary: 90000, age: 11}age: 11id: 1name: "Ram"salary: 90000__proto__: Personconstructor: ƒ Employee(id, name,salary)__proto__: Object
+ram.toString();
+"[object Object]"
+10.toString();
+VM1665:1 Uncaught SyntaxError: Invalid or unexpected token
+var w = 100;
+undefined
+w.toString();
+"100"
+Employee.prototype.toString=function(){
+return "Id "+this.id+" Name "+this.name;
+}
+ƒ (){
+return "Id "+this.id+" Name "+this.name;
+}
+ram.toString();
+"Id 1 Name Ram"
+class A{
+constructor(x,y){
+this.x = x;
+this.y = y;
+}
+show(){
+console.log(`X is ${this.x} and Y is ${this.y}`);
+}
+}
+class B extends A{
+constructor(z){
+super(100,200);
+this.z = z;
+
+}
+ print(){
+	super.show();
+	this.z = this.x + this.y;
+	console.log("B Print "+this.z);
+ }
+}
+undefined
+typeof A;
+"function"
+typeof B;
+"function"
+A.prototype.disp=function(){
+console.log("I am Display");
+}
+ƒ (){
+console.log("I am Display");
+}
+var obj = new B(10);
+undefined
+obj;
+B {x: 100, y: 200, z: 10}
+obj.print();
+VM2231:7 X is 100 and Y is 200
+VM2231:19 B Print 300
+undefined
+obj.disp();
+VM2325:2 I am Display
+undefined
+obj.show();
+VM2231:7 X is 100 and Y is 200
+undefined
+console.log(obj);
+VM2465:1 B {x: 100, y: 200, z: 300}
+undefined
+console.dir(obj);
+VM2490:1 Bx: 100y: 200z: 300__proto__: Aconstructor: class Bprint: ƒ print()__proto__: Object
+undefined
