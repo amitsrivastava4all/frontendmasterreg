@@ -1,0 +1,128 @@
+var counter = 0;  // Global
+function autoGenerate(){
+
+counter++;
+return counter;
+}
+undefined
+autoGenerate();
+1
+autoGenerate();
+2
+counter = "Amit";
+"Amit"
+autoGenerate();
+NaN
+counter = -10000;
+-10000
+autoGenerate();
+-9999
+autoGenerate();
+-9998
+autoGenerate();
+-9997
+function start(){
+var counter = 0;  // Local
+function autoGenerate(){
+
+counter++;
+return counter;
+}
+return autoGenerate;
+}
+undefined
+var t = start();
+undefined
+t();
+1
+t();
+2
+t();
+3
+t();
+4
+t();
+5
+start();
+ƒ autoGenerate(){
+
+counter++;
+return counter;
+}
+var t = start();
+undefined
+t();
+1
+var t = (function(){
+var counter = 0;  // Local
+function autoGenerate(){
+
+counter++;
+return counter;
+}
+return autoGenerate;
+})()
+undefined
+t();
+1
+t();
+2
+t();
+3
+t;
+ƒ autoGenerate(){
+
+counter++;
+return counter;
+}
+t.autoGenerate;
+undefined
+t;
+ƒ autoGenerate(){
+
+counter++;
+return counter;
+}
+function* autoGen(){
+yield 1;
+yield 2;
+yield 3;
+yield 4;
+}
+undefined
+var t = autoGen();
+undefined
+t.next();
+{value: 1, done: false}
+t.next();
+{value: 2, done: false}
+t.next();
+{value: 3, done: false}
+t.next();
+{value: 4, done: false}
+t.next();
+{value: undefined, done: true}
+function* autoGen(){
+var counter = 1;
+while(true){
+yield counter;
+counter++;
+}
+}
+undefined
+var t = autoGen();
+undefined
+t.next();
+{value: 1, done: false}
+t.next();
+{value: 2, done: false}
+t.next();
+{value: 3, done: false}
+t.next();
+{value: 4, done: false}
+t.next();
+{value: 5, done: false}
+t.next();
+{value: 6, done: false}
+t.next();
+{value: 7, done: false}
