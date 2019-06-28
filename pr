@@ -1,0 +1,50 @@
+function makePizza(){
+var slip = new Promise((resolve,reject)=>{
+setTimeout(function(){
+            console.log("Start");
+// Baking Pizza
+        for(let i = 1; i<=100000; i++){
+            for(let j = 1; j<=100000; j++){
+
+            }
+        }
+		// Pizza Done
+		resolve("Pizza Ready ");
+		// reject("Microwave off ");
+        console.log("Ends");
+});  // timeout
+}); // promise
+return slip; 
+
+}
+var pizzaSlip = makePizza();
+console.log("Slip is ",pizzaSlip);
+pizzaSlip.then(data=>console.log('Data is ',data).catch(err=>console.log('error is ',err));
+VM730:22 Uncaught SyntaxError: missing ) after argument list
+function makePizza(){
+var slip = new Promise((resolve,reject)=>{
+setTimeout(function(){
+            console.log("Start");
+// Baking Pizza
+        for(let i = 1; i<=100000; i++){
+            for(let j = 1; j<=100000; j++){
+
+            }
+        }
+		// Pizza Done
+		resolve("Pizza Ready ");
+		// reject("Microwave off ");
+        console.log("Ends");
+},7000);  // timeout
+}); // promise
+return slip; 
+
+}
+var pizzaSlip = makePizza();
+console.log("Slip is ",pizzaSlip);
+pizzaSlip.then(data=>console.log('Data is ',data)).catch(err=>console.log('error is ',err));
+VM751:21 Slip is  Promise {<pending>}
+Promise {<pending>}
+VM751:4 Start
+VM751:14 Ends
+VM751:22 Data is  Pizza Ready 
