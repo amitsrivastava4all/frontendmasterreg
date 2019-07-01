@@ -1,0 +1,145 @@
+async  function getPizza(type){
+console.log("Pizza Order Pick ",type);
+var pr = new Promise((resolve, reject)=>{
+// Async Code
+console.log("Order is going to Prepare ");
+setTimeout(()=>{
+console.log("After 6 Sec ");
+resolve("Pizza is Ready");
+},6000);
+});
+console.log("Slip is Given ");
+return pr;
+}
+undefined
+async  function getPizza(type){
+console.log("Pizza Order Pick ",type);
+var pr = new Promise((resolve, reject)=>{
+// Async Code
+console.log("Order is going to Prepare ");
+setTimeout(()=>{
+console.log("After 6 Sec ");
+resolve("Pizza is Ready ",type);
+},6000);
+});
+console.log("Slip is Given ");
+return pr;
+}
+undefined
+var pr = getPizza('Pan');
+var pr2 = getPizza('Cheese');
+var pr3 = getPizza('Thin');
+Promise.all([pr,pr2,pr3]).then(arr=>console.log('Pizza Rec ',arr)).catch(err=>console.log('Error is ',err));
+VM3050:2 Pizza Order Pick  Pan
+VM3050:5 Order is going to Prepare 
+VM3050:11 Slip is Given 
+VM3050:2 Pizza Order Pick  Cheese
+VM3050:5 Order is going to Prepare 
+VM3050:11 Slip is Given 
+VM3050:2 Pizza Order Pick  Thin
+VM3050:5 Order is going to Prepare 
+VM3050:11 Slip is Given 
+Promise {<pending>}
+VM3050:7 After 6 Sec 
+VM3050:7 After 6 Sec 
+VM3050:7 After 6 Sec 
+VM3554:4 Pizza Rec  (3) ["Pizza is Ready ", "Pizza is Ready ", "Pizza is Ready "]
+async  function getPizza(type){
+console.log("Pizza Order Pick ",type);
+var pr = new Promise((resolve, reject)=>{
+// Async Code
+console.log("Order is going to Prepare ");
+setTimeout(()=>{
+console.log("After 6 Sec ");
+resolve("Pizza is Ready "+type);
+},6000);
+});
+console.log("Slip is Given ");
+return pr;
+}
+undefined
+var pr = getPizza('Pan');
+var pr2 = getPizza('Cheese');
+var pr3 = getPizza('Thin');
+Promise.all([pr,pr2,pr3]).then(arr=>console.log('Pizza Rec ',arr)).catch(err=>console.log('Error is ',err));
+VM3563:2 Pizza Order Pick  Pan
+VM3563:5 Order is going to Prepare 
+VM3563:11 Slip is Given 
+VM3563:2 Pizza Order Pick  Cheese
+VM3563:5 Order is going to Prepare 
+VM3563:11 Slip is Given 
+VM3563:2 Pizza Order Pick  Thin
+VM3563:5 Order is going to Prepare 
+VM3563:11 Slip is Given 
+Promise {<pending>}
+VM3563:7 After 6 Sec 
+VM3563:7 After 6 Sec 
+VM3563:7 After 6 Sec 
+VM3567:4 Pizza Rec  (3) ["Pizza is Ready Pan", "Pizza is Ready Cheese", "Pizza is Ready Thin"]
+async function cube(num){
+var pr = new Promise((resolve, reject)=>{
+setTimeout(()=>{
+resolve(num**3);
+}
+},6000);
+return pr;
+}
+VM3902:5 Uncaught SyntaxError: missing ) after argument list
+async function cube(num){
+var pr = new Promise((resolve, reject)=>{
+setTimeout(()=>{
+resolve(num**3);
+},6000);
+
+});
+return pr;
+}
+undefined
+async function cube(num){
+console.log('Inside Cube ',num);
+var pr = new Promise((resolve, reject)=>{
+setTimeout(()=>{
+resolve(num**3);
+},6000);
+
+});
+return pr;
+}
+async function total(){
+console.log('Inside Total ');
+var r = await cube(3);
+console.log('R is ',r);
+var t = await cube(r);
+console.log('T is ',t);
+return r + t;
+}
+var promise = total();
+promise.then(data=>console.log('data is ',data)).catch(err=>console.log('error is ',err);
+VM4532:20 Uncaught SyntaxError: missing ) after argument list
+async function cube(num){
+console.log('Inside Cube ',num);
+var pr = new Promise((resolve, reject)=>{
+setTimeout(()=>{
+resolve(num**3);
+},6000);
+
+});
+return pr;
+}
+async function total(){
+console.log('Inside Total ');
+var r = await cube(3);
+console.log('R is ',r);
+var t = await cube(r);
+console.log('T is ',t);
+return r + t;
+}
+var promise = total();
+promise.then(data=>console.log('data is ',data)).catch(err=>console.log('error is ',err));
+VM4538:12 Inside Total 
+VM4538:2 Inside Cube  3
+Promise {<pending>}
+VM4538:14 R is  27
+VM4538:2 Inside Cube  27
+VM4538:16 T is  19683
+VM4538:20 data is  19710
