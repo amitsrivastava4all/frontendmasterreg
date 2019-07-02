@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Async Demo</title>
+    <script>
+        function callBack(data){
+            console.log('Data is ',data);
+            setTimeout
+        }
+        function fail(er){
+
+        }
+        function callBigCalc(){
+            bigCalc(callBack,fail);  // Async Style
+            //var t = bigCalc(); Synch Style
+           // console.log(" Result from BigCalc is ",t);
+        }
+        var counter = 1;
+    function sayHello(){
+        document.querySelector('#msg').innerText = 'Hello'+counter;
+        counter++;
+    }
+    function bigCalc(fn,fn2){
+        // Async
+        setTimeout(function(){
+            console.log("Start");
+        for(let i = 1; i<=100000; i++){
+            for(let j = 1; j<=100000; j++){
+
+            }
+        }
+        console.log("Ends");
+        document.querySelector('#msg2').innerText = "Big Calc Ends";
+        //return " I am Done";    
+        fn("I am Done");
+    },6000);  // Asynch 
+            // Synch
+        
+    }
+    </script>
+</head>
+<body>
+    <p id='msg'></p>
+    <p id='msg2'></p>
+  <button onclick="sayHello()">Say Hello</button>
+  <button onclick="callBigCalc()">Big Calc</button>  
+</body>
+</html>
