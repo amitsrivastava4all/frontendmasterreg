@@ -1,0 +1,22 @@
+document.getElementsByTagName("input");
+var arr = document.getElementsByTagName("input");
+arr instanceof Array;
+arr.forEach(z=>console.log(z));
+var m = Array.prototype.forEach.bind(arr);
+m(y=>console.log(y));
+m(y=>y.value='');
+Array.prototype.forEach.call(arr,(ele)=>ele.value='');
+Array.prototype.forEach.apply(arr,[(ele)=>ele.value='']);
+
+class Component{
+constructor(props){
+//this.props = {};
+this.props = props || {};
+}
+}
+class MyComp extends Component{
+constructor(props){
+	super(props);
+	//this.props = props;
+}
+}
