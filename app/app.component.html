@@ -1,0 +1,10 @@
+<p>Angular Demo</p>
+<h1 [class]="cssclass">{{msg|uppercase}}</h1>
+<p>{{msg|titlecase}}</p>
+<p [innerHTML]="msg"></p>
+<input type="text" (input)="takeInput($event)">
+<button (click)="doClick()">Click Me</button>
+<button [disabled]="isDisabled">Button</button>
+<div [hidden]="isDisabled">
+  I am Hide
+</div>
