@@ -1,6 +1,20 @@
 <p>Angular Demo</p>
-<h1 [class]="cssclass">{{msg|uppercase}}</h1>
+<p>Object is {{obj|json}}</p>
+Price <input type="range" [(ngModel)]="price" min="1" max="10">
+Price is {{price}}
+<p>Salary is {{salary}}</p>
+<p>Salary is {{salary|number:'3.2-3'}}</p>
+<p>Salary is {{salary|currency:'INR':true:'3.2-3'}}</p>
+<div *ngIf="price>5">
+Price is High
+</div>
+<p [innerText]="'Hello this is Text'">AAAA</p>
+<p [ngStyle]="{'background-color':price>=5?'red':'green'}">NG Style Demo</p>
+<h1 [ngClass]="{'red':price>=5,'green':price<5}">NG CLASS DEMO</h1>
+<!-- <h1 [class]="cssclass">{{msg|uppercase}}</h1> -->
 <p>{{msg|titlecase}}</p>
+<input type='text' placeholder="Type Data Here" [(ngModel)]="name">
+Name is {{name}}
 <p [innerHTML]="msg"></p>
 <input type="text" (input)="takeInput($event)">
 <button (click)="doClick()">Click Me</button>
@@ -8,3 +22,30 @@
 <div [hidden]="isDisabled">
   I am Hide
 </div>
+<p>Ref</p>
+<input #t1 type="text">
+<input #t2 type="text">
+<button (click)="add(t1.value, t2.value)">Add</button>
+<p>Result is {{result}}</p>
+
+<p>Switch</p>
+<div [ngSwitch]="price">
+  <p *ngSwitchCase="1"><span>Apple</span></p>
+  <p *ngSwitchCase="2">Orange</p>
+  <p *ngSwitchCase="3">Banana</p>
+  <p *ngSwitchCase="4">Grapes</p>
+  
+  <p *ngSwitchDefault>Unknown</p>
+</div>
+<p>For</p>
+<ul>
+  <li *ngFor="let fruit of fruits;let i=index">
+    {{i+1}} {{fruit}}
+  </li>
+</ul>
+<div *ngIf="price>5;else elsetemp">
+  <p>I am If</p>
+</div>
+<ng-template #elsetemp>
+  <p>I am Else</p>
+</ng-template>
