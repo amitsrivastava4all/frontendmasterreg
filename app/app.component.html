@@ -1,4 +1,12 @@
 <p>Angular Demo</p>
+<h1>{{msg}}</h1>
+<input type="text" [(ngModel)]="yourname" placeholder="Type Name Here">
+<input type="text" [(ngModel)]="lastname" placeholder="Type Last Name Here">
+<app-child (fullname)="getFullName($event)" [lname]="lastname" [name]="yourname"></app-child>
+<app-child2 [lname]="lastname" [name]="yourname"></app-child2>
+<app-child2 [lname]="lastname" [name]="yourname"></app-child2>
+<app-child2 [lname]="lastname" [name]="yourname"></app-child2>
+<app-child2 [lname]="lastname" [name]="yourname"></app-child2>
 <p>Object is {{obj|json}}</p>
 Price <input type="range" [(ngModel)]="price" min="1" max="10">
 Price is {{price}}
@@ -10,6 +18,7 @@ Price is High
 </div>
 <p [innerText]="'Hello this is Text'">AAAA</p>
 <p [ngStyle]="{'background-color':price>=5?'red':'green'}">NG Style Demo</p>
+
 <h1 [ngClass]="{'red':price>=5,'green':price<5}">NG CLASS DEMO</h1>
 <!-- <h1 [class]="cssclass">{{msg|uppercase}}</h1> -->
 <p>{{msg|titlecase}}</p>
@@ -17,7 +26,7 @@ Price is High
 Name is {{name}}
 <p [innerHTML]="msg"></p>
 <input type="text" (input)="takeInput($event)">
-<button (click)="doClick()">Click Me</button>
+<button (click)="doClick($event,price)">Click Me</button>
 <button [disabled]="isDisabled">Button</button>
 <div [hidden]="isDisabled">
   I am Hide
