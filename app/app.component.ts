@@ -1,42 +1,49 @@
-import { Component, ViewChild, ViewChildren, QueryList } from '@angular/core';
-import {Child2Component} from './child2/child2.component';
+import { Component } from '@angular/core';
+import {interval, Observable} from 'rxjs';
 @Component({
-  selector:'app-root',
-  //template:`<h1> This is Angular</h1>`
-  templateUrl:'./app.component.html',
-  styleUrls:['./app.component.css']
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
 })
-export class AppComponent{
-  @ViewChild(Child2Component,{static:false}) child2: Child2Component;
-  @ViewChildren(Child2Component)
-  child2List:QueryList<Child2Component>;
-
-  salary:number = 21233.98765;
-  obj = {id:1001, name:'Ram',salary:9999};
-  fruits:string[] = ["Apple","Banana","Orange"];
-  msg:string;
-  cssclass:string ='green';
-  isDisabled:boolean = true;
-  result:number = 0;
-  constructor(){
-    this.msg = 'Hello Angular';
+export class AppComponent {
+  title = 'rxdemos';
+  count:number = 0;
+  doAjax(start):Observable<any>{
+    return Observable.create(obs=>{
+      fetch(''+start).then(response=>{
+        response.json().then(data=>{
+          obs.next(data);
+        }).catch(err=>{
+          obs.error(err);
+        })
+      }).catch(e=>obs.error(e)).finally(()=>obs.complete('Done'));
+    })
+    
   }
-  add(a:string, b:string){
-    this.result = parseInt(a) + parseInt(b);
+  scroll(start){
+    var obs = this.doAjax(start);
+    obs.subscribe((data)=>console.log('Data is ',data),(e)=>console.log('Error is ',e),()=>console.log('Data Complete '));
   }
-  takeInput2(str):void{
-    this.msg = "Take input2 value is "+str;
+  myInterval(time,end):Observable<number>{
+    var countDown = 0;
+    return Observable.create(obs=>{
+      setInterval(()=>{
+        countDown++;
+        obs.next(countDown);
+        if(countDown==end){
+          obs.complete();
+        }
+       // obs.error('Some Error Occur')
+      },time);
+    });
   }
-  takeInput(event):void{
-    this.msg = event.target.value;
-  }
-  getFullName(str){
-    this.msg= 'Full Name is '+str;
-  }
-  doClick(event, price):void{
-    //this.child2.show();
-    this.child2List.forEach(child=>child.show());
-    this.cssclass = this.cssclass =='green'?'red':'green';
-    this.isDisabled = !this.isDisabled;
+  show(){
+    var obs = this.myInterval(1000,10);
+    var sub = obs.subscribe(val=>this.count=val,(err)=>console.log('Error is ',err),()=>console.log('Stream Ends'));
+    // var obs = interval(1000);
+    // var sub = obs.subscribe(val=>this.count=val,(err)=>console.log('Error is ',err),()=>console.log('Stream Ends'));
+    // setTimeout(()=>{
+    //   sub.unsubscribe();
+    // },10000);
   }
 }
