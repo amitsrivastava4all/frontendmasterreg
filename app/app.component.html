@@ -1,8 +1,26 @@
 <h1>Rx Demos</h1>
 <p>{{count}}</p>
+<hr>
+<h1>Basic SPA</h1>
+<a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Contact</a>  
+<a routerLink="/news" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">News</a>  
+<a routerLink="/about" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">About</a>  
+<br>
+<fieldset>
+    <legend>Output</legend>
+    <router-outlet></router-outlet>
+</fieldset>
+<app-adminchild></app-adminchild>
 <button (click)="show()">Show</button>
 <button (click)="scroll(1)">Scroll</button>
 <br>
 <hr>
 <app-child1></app-child1>
 <app-child2></app-child2>
+<p>Ajax Demo</p>
+<button (click)="loadProducts()">Load Products</button>
+<ul>
+    <li *ngFor="let product of products">
+        {{product.id}} {{product.name}} {{product.price}}
+    </li>
+</ul>

@@ -4,6 +4,9 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { Child1Component } from './child1/child1.component';
 import { Child2Component } from './child2/child2.component';
+import {HttpClientModule} from '@angular/common/http';
+import { AdminModule } from './admin/admin.module';
+import { UserroutesModule } from './userroutes/userroutes.module';
 
 @NgModule({
   declarations: [
@@ -12,7 +15,7 @@ import { Child2Component } from './child2/child2.component';
     Child2Component
   ],
   imports: [
-    BrowserModule
+    BrowserModule, HttpClientModule, AdminModule,UserroutesModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,13 +1,19 @@
 import { Component } from '@angular/core';
 import {interval, Observable} from 'rxjs';
+import { CommonService } from './common.service';
+import { Product } from './models/product';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  products:Product[] = [];
   title = 'rxdemos';
   count:number = 0;
+  constructor(private common:CommonService){
+
+  }
   doAjax(start):Observable<any>{
     return Observable.create(obs=>{
       fetch(''+start).then(response=>{
@@ -23,6 +29,16 @@ export class AppComponent {
   scroll(start){
     var obs = this.doAjax(start);
     obs.subscribe((data)=>console.log('Data is ',data),(e)=>console.log('Error is ',e),()=>console.log('Data Complete '));
+  }
+  loadProducts(){
+   
+   let obs:Observable<Product> =this.common.getProducts();
+   let obs2 = obs.subscribe((response)=>{
+    this.products =  response['mobiles'];
+    console.log('All Products are ',this.products);
+   },(err)=>{
+     console.log('Error is ',err)
+   })
   }
   myInterval(time,end):Observable<number>{
     var countDown = 0;
