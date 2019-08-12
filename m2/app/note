@@ -1,0 +1,9 @@
+1. Shared Module - Contains all the common used Directives, Pipes, and Components that we want to share with other modules that import this shared module.
+2. Shared Module - Also contain common modules (CommonModule, FormsModule, ReactiveFormsModule, HttpModule etc). So It Export from SharedModule and Other Module import the SharedModule Only.
+
+Lazy Module Loading
+Load Module on Demand , It Reduce the Initial load of an application.
+All the routes in the module to lazy load should have the same route prefix.
+The Lazy module never be referenced in any other module , otherwise it will load Eager.
+Use loadchildren property for lazy loading
+{path:’’,loadchildren:’./pathofemployeemodullefilewithname#ModuleClassName’}
