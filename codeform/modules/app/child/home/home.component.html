@@ -1,0 +1,16 @@
+<p>Template Driven Validation</p>
+<form (ngSubmit)="save(myform)" #myform="ngForm">
+    <input #uid="ngModel" type="text" ngModel name="email" required placeholder="Type email here">
+    <span></span>
+    <input #email="ngModel" type="text" ngModel name="uname" required placeholder="Type Name Here">
+    <button type="submit">Submit</button>
+    <br> Pristine {{uid.pristine}}
+    <br> Touched {{uid.touched}}
+    <br> Untouched {{uid.untouched}}
+    <br> Dirty {{uid.dirty}}
+    <br> Valid {{uid.valid}}
+    <br> Invalid {{uid.invalid}}
+    <br> Error {{uid.errors|json}}
+    <span *ngIf="uid.pristine && uid.touched">Userid Can't Be Empty</span>
+    <span *ngIf="uid.dirty && uid.invalid">Userid is in B/w 3 to 10 Alpha Chars</span>
+</form>

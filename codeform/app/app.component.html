@@ -1,0 +1,50 @@
+<app-second></app-second>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="container">
+    <form [formGroup]="regiterForm" (submit)="doRegister()">
+        <div formGroupName="userInfo">
+            <div class="form-group">
+                <label for="">UserName</label>
+                <input type="text" formControlName="username" class="form-control">
+                <span class="alert-danger" *ngIf="!regiterForm.get('userInfo.username').valid
+                && regiterForm.get('userInfo.username').touched && regiterForm.get('userInfo.username').pristine">UserName can't be blank!</span>
+                <span class="alert-danger" *ngIf="regiterForm.get('userInfo.username').invalid && regiterForm.get('userInfo.username').errors['blackListed']">UserName Is BlackListed !</span>
+
+
+            </div>
+            <div class="form-group">
+                <label for="">Email</label>
+                <input type="email" formControlName="email" class="form-control">
+                
+                <span class="alert-danger" *ngIf="regiterForm.get('userInfo.email').invalid
+                  && regiterForm.get('userInfo.email').errors['email']">Invalid EmailId</span>
+                <span class="alert-danger" *ngIf="regiterForm.get('userInfo.email').invalid && regiterForm.get('userInfo.email').errors['emailBlackListed']">BlackListed Email </span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="">Gender</label>
+            <div class="radio-inline" *ngFor="let g of gender">
+
+                <input type="radio" formControlName="gender" [value]="g" class="radio"> {{g}}
+            </div>
+        </div>
+        <div formArrayName="address" class="form-group">
+            <h2>Add Address Info</h2>
+            <button (click)="addAddress()">Add Address</button>
+            <ul>
+                <li *ngFor="let address of regiterForm.get('address').controls; let i=index">
+                    <input type="text" [formControlName]="i">
+                </li>
+            </ul>
+        </div>
+
+
+
+        <button type="submit" class="btn btn-primary">Register</button>
+    </form>
+
+</div>
