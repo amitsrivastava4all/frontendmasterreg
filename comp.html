@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="libs/vue.js">
+    </script>
+    <script>
+        window.addEventListener('load',()=>{
+    Vue.component('childcomp',{
+        methods:{
+            callparent(){
+                this.$emit('evtincseries');
+            }
+        },
+        props:{
+            parent:'',
+            propseries:0,
+        },
+        template:`
+        <div>
+            <button @click="callparent()">Call Parent </button>
+        <h1> I am a Child Comp {{parent}} Prop Series is {{propseries}} </h1>
+        </div>
+        `
+    })      
+    Vue.component('mycomp',{
+        props:{
+            xyz:''
+            
+        },
+        data(){
+            return {
+                series:0,
+                count:0,
+                message:'Hello I am Parent Data'
+                
+            }
+        },
+        methods: {
+            incSeries(){
+                console.log('Call INcSeries ',this.series);
+                this.series++;
+            },
+            countDown(){
+                this.count++;
+            }
+        },
+        template:`<div><h1>I am a Comp {{count}} Prop is {{xyz}}</h1>
+            <childcomp @evtincseries="incSeries()" :propseries="series" :parent="message"></childcomp>
+            <button @click="countDown()">CallClick </button>
+            </div>
+        `
+    });
+    new Vue({
+        el:'#root',
+        data:{
+            mydata:'Hello'
+        }
+    });
+        })
+    
+    </script>
+</head>
+<body>
+        <div id="root">
+            <mycomp :xyz="mydata"></mycomp>
+        </div>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="libs/vue.js"></script>
+    <script>
+    window.addEventListener('load',()=>{
+        new Vue({
+            el:'#root',
+            data:{
+                x1:0,
+                y1:0,
+                msg:'Hello Vue JS.....',
+                name:'Hi Vue JS',
+                flag:true,
+                items:[10,20,30,40,50]
+
+            },
+            computed:{
+                greet(){
+                    return "I am a Computed Props";
+                },
+                ajax(){
+                    
+                }
+            },
+            methods:{
+                add(){
+                    
+                    this.msg = "Sum, is "+(parseInt(this.x1)+parseInt(this.y1));
+                },
+                print(){
+                    this.msg= "U Press Enter Key"
+                },
+                show(){
+                    this.msg = 'I am in Show'
+                },
+                takeInput(event){
+                    this.msg = event.target.value
+                    this.flag = false;
+                }
+            }
+        })
+    })
+    </script>
+</head>
+<body>
+    <div id="root">
+        {{greet}}
+        <input type="text" v-model="x1">
+        <input type="text" v-model="y1">
+        X1 is {{x1}}
+        <button @click="add()">Add</button>
+        <!-- <input type="text" id="t1">
+        <input type="text" id="t2"> -->
+        <!-- <button @click="add(t1,t2)">Add</button> -->
+        <ul>
+            <li v-for="(item,index) in items">
+                {{item}} {{index+1}}
+            </li>
+        </ul>
+        <p v-bind:text="msg">Inner Text</p>
+        <p v-text="msg">P is </p>
+        <h1 v-html="msg">Inner HTML</h1>
+        <hr>
+        <button :disabled="flag">OK</button>
+        <br><br>
+        <h2  v-once>{{name}} </h2>
+        <input type="text" @input="takeInput($event)">
+        <input type="text" @keyup.enter="print()">
+        {{msg}}
+        <p v-if="flag">
+            Flag is true
+        </p>
+        <p v-else>
+            Flag is False
+        </p>
+        <button v-on:click="show">Show</button>
+        <!-- <button @click="show()">Show</button> -->
+        
+    </div>
+</body>
+</html>
